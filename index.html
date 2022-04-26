@@ -64,14 +64,13 @@
                 <!-- /.header_section_sx -->
                 <main class="main_section_sx">
 
-
                     <div class="users d-flex flex-column align-items-center">
-                        <div class="user d-flex align-items-center p-2" v-for="(contact, index) in contacts">
-                            <img width="50" class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="user_avatar">
+                        <div class="user d-flex align-items-center p-2" @click="view_message(contact, index)" v-for="(contact, index) in contacts" v-for="(messaggio, i) in messages">
+                            <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="user_avatar">
                             <div class="text_users">
                                 <div class="user_message">
                                     <h5 class="name_user ms-2">
-                                        {{contacts[index].name}}
+                                        {{contact.name}}
                                     </h5>
 
                                     <p class="last_message">Ultimo messaggio inviato</p>
@@ -114,9 +113,8 @@
                 <!-- /.header_section_dx -->
                 <main class="main_section_dx">
                     <div class="conversation">
-                        <p class="green">Hai portato a spasso il cane? <span class="minute_message">16:30</span></p>
-                        <p class="green">Ricordati di stendere i panni <span class="minute_message">16:30</span></p>
-                        <p class="grey">Tutto fatto!!<span class="minute_message">16:30</span></p>
+                        <p class="green" v-html="conversation"><span class="minute_message">16:30</span></p>
+                        
 
                     </div>
                     <!-- /.messages -->

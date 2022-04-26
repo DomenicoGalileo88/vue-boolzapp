@@ -11,6 +11,9 @@ Click sul contatto mostra la conversazione del contatto cliccato
 const app = new Vue({
   el: "#app",
   data: {
+
+    conversation: [],
+
     contacts: [
       {
         name: "Michele",
@@ -176,5 +179,11 @@ const app = new Vue({
     ],
   },
 
-  methods: {},
+  methods: {
+      view_message(contact, i){
+        //console.log('visualizza conversazione', index);
+        console.log(contact.messages[0].message);
+        this.conversation.push(contact.messages[i].message);
+      }
+  },
 });

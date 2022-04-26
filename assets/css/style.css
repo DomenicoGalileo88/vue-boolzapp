@@ -1,5 +1,83 @@
-*{
+/* #region Common */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+.wrapper_app {
+    width: 1200px;
+    height: 96vh;
+    background-color: aqua;
+    margin: 2vh auto;
+}
+
+img{
+    max-width: 100%;
+}
+
+.dx{
+    background-color: aliceblue;
+}
+
+.sx{
+    background-color: antiquewhite;
+}
+/* #endregion Common */
+
+/* #region Section sx */
+
+/* #region Header_section_sx */
+
+.header_section_sx{
+    background-color: rgb(241, 241, 241);
+}
+
+.false_action{
+    color: rgb(164, 164, 164);
+}
+
+/* #endregion Header_section_sx */
+
+/* #region Main_section_sx */
+
+.desktop_notifications{
+    display: flex;
+    align-items: center;
+    background-color: rgb(138, 239, 255);
+    padding: 1rem;
+    line-height: 0.5;
+}
+
+.notification_icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(138, 239, 255) ;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+.notification_text > p{
+    color: rgb(151, 149, 149);
+    text-decoration: underline;
+}
+
+/* #endregion Main_section_sx */
+
+/* #endregion Section sx */
+
+/* #region Section dx */
+
+/* #region Header_section_dx */
+
+/* #endregion Header_section_dx */
+
+/* #region Main_section_dx */
+
+/* #endregion Main_section_dx */
+
+/* #endregion Section dx */

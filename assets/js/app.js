@@ -17,6 +17,7 @@ const app = new Vue({
     conversation: [],
 
     contacts: [
+        
       {
         name: "Michele",
         avatar: "_1",
@@ -184,9 +185,13 @@ const app = new Vue({
   methods: {
       view_message(contact, i){
         //console.log('visualizza conversazione', index);
-        //console.log(contact.messages[0].message);
         console.log(contact.message);
         this.conversation.push(contact.messages);
-      }
+      },
+
+      user_index(index){
+        this.selected_user = index;
+        console.log(this.selected_user, index);
+      } 
   },
 });

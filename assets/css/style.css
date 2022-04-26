@@ -5,6 +5,17 @@
   box-sizing: border-box;
 }
 
+:root{
+    --bg_header: rgba(234, 234, 234, 1);
+    --bg_notification: rgba(142, 218, 252, 1);
+    --bg_selected_contact: rgba(233, 235, 235, 1);
+    --bg_footer: rgba(243, 238, 234, 1);
+    --color_text_dark: rgba(107, 115, 118, 1);
+    --color_text_light: rgba(187, 185, 192, 1);
+    --color_icon: rgba(177, 177, 177, 1);
+    --bg_success: rgba(213, 249, 186, 1);
+}
+
 body{
     font-family: Helvetica, Arial, sans-serif;
 }
@@ -21,6 +32,10 @@ i, img{
 
 img {
   max-width: 100%;
+}
+
+input:focus{
+    outline: none;
 }
 
 .dx {
@@ -40,7 +55,7 @@ img {
 /* #region Header_section_sx */
 
 .header_section_sx {
-  background-color: rgb(241, 241, 241);
+  background-color: var(--bg_header);
 }
 
 .user:hover{
@@ -48,7 +63,7 @@ img {
 }
 
 .false_action {
-  color: rgb(164, 164, 164);
+  color: var(--color_icon);
 }
 
 .false_action i {
@@ -69,7 +84,7 @@ img {
 .desktop_notifications {
   display: flex;
   align-items: center;
-  background-color: rgb(138, 239, 255);
+  background-color: var(--bg_notification);
   padding: 1rem;
   line-height: 0.5;
 }
@@ -78,7 +93,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(138, 239, 255);
+  color: var(--bg_notification);
   width: 50px;
   height: 50px;
   background-color: white;
@@ -87,12 +102,12 @@ img {
 }
 
 .notification_text > p {
-  color: rgb(151, 149, 149);
+  color: var(--color_text_dark);
   text-decoration: underline;
 }
 
 .search {
-  color: rgb(164, 164, 164);
+  color: var(--color_icon);
   background-color: white;
   padding: 1rem;
 }
@@ -103,7 +118,7 @@ img {
 }
 
 .last_message {
-  color: lightgrey;
+  color: var(--color_text_light);
 }
 
 .users .text_users {
@@ -157,7 +172,7 @@ img {
 }
 
 .green {
-  background-color: greenyellow;
+  background-color: var(--bg_success);
   float: right;
 }
 
@@ -167,7 +182,7 @@ img {
 }
 
 .grey{
-    background-color: rgb(235, 234, 234);
+    background-color: var(--bg_selected_contact);
 }
 /* #endregion Main_section_dx */
 
@@ -178,8 +193,8 @@ img {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
-  background-color: antiquewhite;
-  color: rgb(141, 141, 141);
+  background-color: var(--bg_footer);
+  color: var(--color_icon);
 }
 
 .footer_section_dx input {
@@ -191,7 +206,7 @@ img {
 
 .minute_message {
   font-size: 10px;
-  color: rgb(143, 142, 142);
+  color: var(--color_text_light);
 }
 
 /* #endregion Footer_section_dx */

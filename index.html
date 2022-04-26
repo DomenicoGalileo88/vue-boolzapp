@@ -65,7 +65,7 @@
                 <main class="main_section_sx">
 
                     <div class="users d-flex flex-column align-items-center">
-                        <div class="user d-flex align-items-center p-2" @click="view_message(contact, index)" v-for="(contact, index) in contacts" v-for="(messaggio, i) in messages">
+                        <div class="user d-flex align-items-center p-2" @click="selected_user = index" v-for="(contact, index) in contacts" v-for="(messaggio, i) in messages">
                             <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="user_avatar">
                             <div class="text_users">
                                 <div class="user_message">
@@ -93,9 +93,9 @@
                     <div class="user_contact d-flex align-items-center
                                                                 justify-content-between p-2">
                         <div class="contact d-flex align-items-center">
-                            <img width="50" class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="user_avatar">
+                            <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + contacts[selected_user].avatar + '.jpg'" alt="user_avatar">
                             <h5 class="contact_user">
-                                Michele
+                                {{contacts[selected_user].name}}
                             </h5>
 
                         </div>
@@ -113,7 +113,8 @@
                 <!-- /.header_section_dx -->
                 <main class="main_section_dx">
                     <div class="conversation">
-                        <p class="green" v-html="conversation"><span class="minute_message">16:30</span></p>
+                        <p class="green" v-for="message in contacts[selected_user].messages">{{message.message}}<span class="minute_message">16:30</span></p>
+                        <!-- FARE CONDIZIONE PER VERIFICARE LO STATUS DEL MESSAGGIO PER ASSEGNARE LA CLASSE CORRISPONDENTE -->
                         
 
                     </div>

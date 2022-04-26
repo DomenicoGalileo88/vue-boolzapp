@@ -12,6 +12,8 @@ const app = new Vue({
   el: "#app",
   data: {
 
+    selected_user: 0,
+
     conversation: [],
 
     contacts: [
@@ -182,8 +184,9 @@ const app = new Vue({
   methods: {
       view_message(contact, i){
         //console.log('visualizza conversazione', index);
-        console.log(contact.messages[0].message);
-        this.conversation.push(contact.messages[i].message);
+        //console.log(contact.messages[0].message);
+        console.log(contact.message);
+        this.conversation.push(contact.messages);
       }
   },
 });

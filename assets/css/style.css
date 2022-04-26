@@ -8,7 +8,6 @@
 .wrapper_app {
     width: 1200px;
     height: 96vh;
-    background-color: aqua;
     margin: 2vh auto;
 }
 
@@ -18,11 +17,15 @@ img{
 
 .dx{
     background-color: aliceblue;
+    max-height: 100%;
+    
 }
 
 .sx{
-    background-color: antiquewhite;
+    max-height: 100%;
+    overflow: hidden;
 }
+
 /* #endregion Common */
 
 /* #region Section sx */
@@ -40,6 +43,11 @@ img{
 /* #endregion Header_section_sx */
 
 /* #region Main_section_sx */
+
+.main_section_sx{
+    max-height: 100%;
+    overflow: auto;
+}
 
 .desktop_notifications{
     display: flex;
@@ -79,6 +87,9 @@ img{
 
 .last_message{
     color: lightgrey;
+}
+
+.users{
 }
 
 .users .text_users{

@@ -190,15 +190,18 @@ button:focus{
 }
 
 .content_menu{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
    background-color: white;
    width: fit-content;
    list-style: none;
    border-radius: 5px;
-   padding: 1rem;
+}
+
+.content_menu li{
+    padding: 0.5rem;
 }
 /* #endregion Main_section_dx */
 

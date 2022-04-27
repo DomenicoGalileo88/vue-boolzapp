@@ -32,8 +32,6 @@ const app = new Vue({
     timer_id: null,
     search: "",
 
-  
-
     conversation: [],
 
     contacts: [

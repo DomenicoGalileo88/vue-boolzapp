@@ -225,6 +225,12 @@ button:focus{
   color: var(--color_text_light);
 }
 
+.dropdown_menu{
+    position: absolute;
+    top: 40px;
+    right: 0;
+}
+
 /* #endregion Footer_section_dx */
 
 /* #endregion Section dx */

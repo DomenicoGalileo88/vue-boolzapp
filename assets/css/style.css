@@ -38,6 +38,10 @@ input:focus{
     outline: none;
 }
 
+button:focus{
+    outline: none;
+}
+
 .dx {
   max-height: 100%;
   overflow: hidden;

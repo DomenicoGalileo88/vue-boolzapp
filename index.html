@@ -121,18 +121,18 @@
 
                     <div class="conversation">
                         <div class="position-relative mb-2" :class="message.status == 'sent' ? 'green' : 'white'"
-                            v-for="message in contacts[selected_user].messages">
+                            v-for="(message, index) in contacts[selected_user].messages">
                             {{message.message}} 
                             <span class="minute_message">
                                 {{message.date.substr(11, 5)}}
-                                <button @click="show = !show" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
-                                <span v-show="!show" class="dropdown_menu ">
+                                <button @click="contacts[index].visible = !contacts[index].visible" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
+                                <span v-show="!contacts[index].visible" class="dropdown_menu ">
                                     <ul class="content_menu">
                                         <li>Info message</li>
                                         <li>Delete message</li>
                                     </ul>
                                 </span>
-                                <span v-show="show">
+                                <span v-show="contacts[index].visible">
 
                                 </span>
                                 <!-- <span class="dropdown">

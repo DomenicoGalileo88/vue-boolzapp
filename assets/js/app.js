@@ -31,7 +31,8 @@ const app = new Vue({
     new_message: "",
     timer_id: null,
     search: "",
-    show: true,
+
+  
 
     conversation: [],
 

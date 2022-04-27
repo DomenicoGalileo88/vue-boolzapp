@@ -161,7 +161,7 @@ button:focus{
 }
 
 .conversation {
-  width: 80%;
+  width: 90%;
   padding: 1rem 0;
 }
 
@@ -227,8 +227,9 @@ button:focus{
 
 .dropdown_menu{
     position: absolute;
-    top: 40px;
+    bottom: -77px;
     right: 0;
+    z-index: 1;
 }
 
 /* #endregion Footer_section_dx */

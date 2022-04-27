@@ -26,9 +26,9 @@
                     <div class="user_contact d-flex align-items-center
                                             justify-content-between p-2">
                         <div class="contact d-flex align-items-center">
-                            <img width="50" class="rounded-circle" src="./assets/img/avatar_1.jpg" alt="user_avatar">
+                            <img width="50" class="rounded-circle" src="./assets/img/avatar_2.jpg" alt="user_avatar">
                             <h5 class="contact_user">
-                                Michele
+                                Domenico
                             </h5>
 
                         </div>
@@ -57,20 +57,20 @@
 
                     <div class="search">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input class="search_bar border-0" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input class="search_bar border-0" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
                     </div>
                     <!-- /.search -->
                 </header>
                 <!-- /.header_section_sx -->
                 <main class="main_section_sx">
 
-                    <div class="users d-flex flex-column align-items-center">
-                        <div :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2" @click="user_index(index)" v-for="(contact, index) in contacts">
-                            <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="user_avatar">
+                    <div class="users d-flex flex-column align-items-center" v-for="(filter_contact, index) in filteredList">
+                        <div :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2" @click="user_index(index)">
+                            <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + filter_contact.avatar + '.jpg'" alt="user_avatar">
                             <div class="text_users">
                                 <div class="user_message">
                                     <h5 class="name_user ms-2">
-                                        {{contact.name}}
+                                        {{filter_contact.name}}
                                     </h5>
 
                                     <p class="last_message">Ultimo messaggio</p>

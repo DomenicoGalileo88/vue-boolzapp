@@ -25,6 +25,8 @@ const app = new Vue({
     selected_user: 0,
     new_message: "",
     timer_id: null,
+    search: "",
+    filtered: [],
 
     conversation: [],
 
@@ -206,33 +208,52 @@ const app = new Vue({
     },
 
     add_new_message() {
-        //console.log('hai aggiunto un nuovo messaggio');
-        let newMessage = {
-          date: "10/01/2020 15:51:00",
-          message: this.new_message,
-          status: "sent",
-        };
-        
-        if (newMessage.message.length > 0) {
-            //console.log('hai pushato un messaggio');
-            //console.log(this.contacts[this.selected_user].messages);
-            this.contacts[this.selected_user].messages.push(newMessage);
-            this.new_message = "";
-            this.timer_id = setTimeout(this.answer_message, 1000)
-        };
+      //console.log('hai aggiunto un nuovo messaggio');
+      let newMessage = {
+        date: "10/01/2020 15:51:00",
+        message: this.new_message,
+        status: "sent",
+      };
+
+      if (newMessage.message.length > 0) {
+        //console.log('hai pushato un messaggio');
+        //console.log(this.contacts[this.selected_user].messages);
+        this.contacts[this.selected_user].messages.push(newMessage);
+        this.new_message = "";
+        this.timer_id = setTimeout(this.answer_message, 1000);
+      }
     },
 
-    answer_message(){
-        let answer = {
-          date: "10/01/2020 15:51:02",
-          message: "ok",
-          status: "received",
-        };
-        this.contacts[this.selected_user].messages.push(answer);
+    answer_message() {
+      let answer = {
+        date: "10/01/2020 15:51:02",
+        message: "ok",
+        status: "received",
+      };
+      this.contacts[this.selected_user].messages.push(answer);
     },
 
-  }
+    /*  filter_contacts(){
+        this.contacts.filter(contact => {
+            
+            //console.log(contact.name.includes('a'));
+            if (contact.name.includes(this.search)) {
+                this.filtered.push(contact)
+                //return contact;
+                console.log(this.filtered);
+                return this.filtered;
+            } 
+        });
+    }, */
+  },
 
+  computed: {
+    filteredList() {
+      return this.contacts.filter((filter_contact) => {
+        return filter_contact.name.toLowerCase().includes(this.search.toLowerCase());
+      });
+    },
+  },
 });
 
 /* let array = [1, 2, 5, 65, 3, 24];

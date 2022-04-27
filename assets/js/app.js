@@ -19,6 +19,11 @@ un “ok” come risposta, che apparirà dopo 1 secondo.*/
 contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
 “mar” rimangono solo Marco e Martina) */
 
+/* Milestone 5 - opzionale
+● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
+permette di cancellare il messaggio selezionato
+● Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti */
+
 const app = new Vue({
   el: "#app",
   data: {
@@ -26,7 +31,6 @@ const app = new Vue({
     new_message: "",
     timer_id: null,
     search: "",
-    filtered: [],
 
     conversation: [],
 
@@ -198,13 +202,13 @@ const app = new Vue({
   methods: {
     view_message(contact, i) {
       //console.log('visualizza conversazione', index);
-      console.log(contact.message);
+      //console.log(contact.message);
       this.conversation.push(contact.messages);
     },
 
     user_index(index) {
       this.selected_user = index;
-      console.log(this.selected_user, index);
+      //console.log(this.selected_user, index);
     },
 
     add_new_message() {
@@ -232,19 +236,6 @@ const app = new Vue({
       };
       this.contacts[this.selected_user].messages.push(answer);
     },
-
-    /*  filter_contacts(){
-        this.contacts.filter(contact => {
-            
-            //console.log(contact.name.includes('a'));
-            if (contact.name.includes(this.search)) {
-                this.filtered.push(contact)
-                //return contact;
-                console.log(this.filtered);
-                return this.filtered;
-            } 
-        });
-    }, */
   },
 
   computed: {

@@ -184,6 +184,18 @@ input:focus{
 .grey{
     background-color: var(--bg_selected_contact);
 }
+
+.content_menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   background-color: white;
+   width: fit-content;
+   list-style: none;
+   border-radius: 5px;
+   padding: 1rem;
+}
 /* #endregion Main_section_dx */
 
 /* #region Footer_section_dx */

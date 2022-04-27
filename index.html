@@ -57,16 +57,20 @@
 
                     <div class="search">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input class="search_bar border-0" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
+                        <input class="search_bar border-0" type="text" placeholder="Cerca o inizia una nuova chat"
+                            v-model="search">
                     </div>
                     <!-- /.search -->
                 </header>
                 <!-- /.header_section_sx -->
                 <main class="main_section_sx">
 
-                    <div class="users d-flex flex-column align-items-center" v-for="(filter_contact, index) in filteredList">
-                        <div :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2" @click="user_index(index)">
-                            <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + filter_contact.avatar + '.jpg'" alt="user_avatar">
+                    <div class="users d-flex flex-column align-items-center"
+                        v-for="(filter_contact, index) in filteredList">
+                        <div :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2"
+                            @click="user_index(index)">
+                            <img width="50" class="rounded-circle"
+                                :src="'./assets/img/avatar' + filter_contact.avatar + '.jpg'" alt="user_avatar">
                             <div class="text_users">
                                 <div class="user_message">
                                     <h5 class="name_user ms-2">
@@ -93,7 +97,9 @@
                     <div class="user_contact d-flex align-items-center
                                                                 justify-content-between p-2">
                         <div class="contact d-flex align-items-center">
-                            <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + contacts[selected_user].avatar + '.jpg'" alt="user_avatar">
+                            <img width="50" class="rounded-circle"
+                                :src="'./assets/img/avatar' + contacts[selected_user].avatar + '.jpg'"
+                                alt="user_avatar">
                             <h5 class="contact_user">
                                 {{contacts[selected_user].name}}
                             </h5>
@@ -114,7 +120,32 @@
                 <main class="main_section_dx">
 
                     <div class="conversation">
-                        <p :class="message.status == 'sent' ? 'green' : 'white'" v-for="message in contacts[selected_user].messages">{{message.message}}<span class="minute_message">{{message.date.substr(11, 5)}}</span></p>                      
+                        <p :class="message.status == 'sent' ? 'green' : 'white'"
+                            v-for="message in contacts[selected_user].messages">
+                            {{message.message}} 
+                            <span class="minute_message">
+                                {{message.date.substr(11, 5)}}
+                                <!-- <span class="dropdown_menu">
+                                    <button class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
+                                    <ul class="content_menu">
+                                        <li>Info message</li>
+                                        <li>Delete message</li>
+                                    </ul>
+                                </span> -->
+                                <span class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </span>
+                            </span> 
+                            
+                            
+                        </p>
                     </div>
                     <!-- /.messages -->
                 </main>
@@ -122,7 +153,8 @@
 
                 <footer class="footer_section_dx">
                     <i class="fa-regular fa-face-smile fa-xl"></i>
-                    <input type="text" placeholder="Scrivi un messaggio" v-model="new_message" @keydown.enter="add_new_message">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="new_message"
+                        @keydown.enter="add_new_message">
                     <i class="fa-solid fa-microphone fa-xl"></i>
                 </footer>
                 <!-- /.footer_section_dx -->
@@ -133,6 +165,8 @@
 
 
     </div>
+
+    
 
 
     <!-- cdn vue js -->

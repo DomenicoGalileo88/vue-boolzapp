@@ -1,23 +1,34 @@
 /* 
 Milestone 1
 Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e dall’interlocutore (bianco) assegnando due classi CSS diverse
-Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto
-
+Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare nome e immagine di ogni contatto*/
+/*
 Milestone 2
 Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 Click sul contatto mostra la conversazione del contatto cliccato
 */
 
+/* Milestone 3
+● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+“enter” il testo viene aggiunto al thread sopra, come messaggio verde
+● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+un “ok” come risposta, che apparirà dopo 1 secondo.*/
+
+/*Milestone 4
+● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+“mar” rimangono solo Marco e Martina) */
+
 const app = new Vue({
   el: "#app",
   data: {
-
     selected_user: 0,
+    new_message: "",
+    timer_id: null,
 
     conversation: [],
 
     contacts: [
-        
       {
         name: "Michele",
         avatar: "_1",
@@ -183,15 +194,47 @@ const app = new Vue({
   },
 
   methods: {
-      view_message(contact, i){
-        //console.log('visualizza conversazione', index);
-        console.log(contact.message);
-        this.conversation.push(contact.messages);
-      },
+    view_message(contact, i) {
+      //console.log('visualizza conversazione', index);
+      console.log(contact.message);
+      this.conversation.push(contact.messages);
+    },
 
-      user_index(index){
-        this.selected_user = index;
-        console.log(this.selected_user, index);
-      } 
-  },
+    user_index(index) {
+      this.selected_user = index;
+      console.log(this.selected_user, index);
+    },
+
+    add_new_message() {
+        //console.log('hai aggiunto un nuovo messaggio');
+        let newMessage = {
+          date: "10/01/2020 15:51:00",
+          message: this.new_message,
+          status: "sent",
+        };
+        
+        if (newMessage.message.length > 0) {
+            //console.log('hai pushato un messaggio');
+            //console.log(this.contacts[this.selected_user].messages);
+            this.contacts[this.selected_user].messages.push(newMessage);
+            this.new_message = "";
+            this.timer_id = setTimeout(this.answer_message, 1000)
+        };
+    },
+
+    answer_message(){
+        let answer = {
+          date: "10/01/2020 15:51:02",
+          message: "ok",
+          status: "received",
+        };
+        this.contacts[this.selected_user].messages.push(answer);
+    },
+
+  }
+
 });
+
+/* let array = [1, 2, 5, 65, 3, 24];
+let lastElement = array.slice(-1)
+console.log(lastElement); */

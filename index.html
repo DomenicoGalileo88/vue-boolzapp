@@ -65,7 +65,7 @@
                 <main class="main_section_sx">
 
                     <div class="users d-flex flex-column align-items-center">
-                        <div :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2" @click="user_index(index)" v-for="(contact, index) in contacts" v-for="(messaggio, i) in messages">
+                        <div :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2" @click="user_index(index)" v-for="(contact, index) in contacts">
                             <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="user_avatar">
                             <div class="text_users">
                                 <div class="user_message">
@@ -73,7 +73,7 @@
                                         {{contact.name}}
                                     </h5>
 
-                                    <p class="last_message">Ultimo messaggio inviato</p>
+                                    <p class="last_message">Ultimo messaggio</p>
                                 </div>
 
                                 <span class="hours">12:50</span>
@@ -112,11 +112,9 @@
                 </header>
                 <!-- /.header_section_dx -->
                 <main class="main_section_dx">
-                    <div class="conversation">
-                        <p :class="message.status == 'sent' ? 'green' : 'white'" v-for="message in contacts[selected_user].messages">{{message.message}}<span class="minute_message">16:30</span></p>
-                        <!-- FARE CONDIZIONE PER VERIFICARE LO STATUS DEL MESSAGGIO PER ASSEGNARE LA CLASSE CORRISPONDENTE -->
-                        
 
+                    <div class="conversation">
+                        <p :class="message.status == 'sent' ? 'green' : 'white'" v-for="message in contacts[selected_user].messages">{{message.message}}<span class="minute_message">{{message.date.substr(11, 5)}}</span></p>                      
                     </div>
                     <!-- /.messages -->
                 </main>
@@ -124,7 +122,7 @@
 
                 <footer class="footer_section_dx">
                     <i class="fa-regular fa-face-smile fa-xl"></i>
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input type="text" placeholder="Scrivi un messaggio" v-model="new_message" @keydown.enter="add_new_message">
                     <i class="fa-solid fa-microphone fa-xl"></i>
                 </footer>
                 <!-- /.footer_section_dx -->
@@ -135,8 +133,6 @@
 
 
     </div>
-
-
 
 
     <!-- cdn vue js -->

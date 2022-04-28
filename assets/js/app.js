@@ -261,6 +261,13 @@ const app = new Vue({
         this.drop = false;
         //console.log(this.drop);
       }
+    },
+
+    deleteMessage(index){
+      this.active_message = index;
+      console.log(this.active_message);
+      this.contacts[this.selected_user].messages.splice(index, 1)
+
     }
   },
 });

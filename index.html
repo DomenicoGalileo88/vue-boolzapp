@@ -129,7 +129,7 @@
                                 <span :class="active_message == index && drop == true ? 'active' : ''" class="dropdown_menu ">
                                     <ul class="content_menu">
                                         <li>Info message</li>
-                                        <li>Delete message</li>
+                                        <li @click="deleteMessage(index)">Delete message</li>
                                     </ul>
                                 </span>
                                 <span >

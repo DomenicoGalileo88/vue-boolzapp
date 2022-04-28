@@ -77,10 +77,12 @@
                                         {{filter_contact.name}}
                                     </h5>
 
-                                    <p class="last_message">Ultimo messaggio</p>
+                                    <p class="last_message">
+                                        {{filter_contact.messages[filter_contact.messages.length -1].message}}
+                                    </p>
                                 </div>
 
-                                <span class="hours">12:50</span>
+                                <small class="hours">{{filter_contact.messages[filter_contact.messages.length -1].date.substr(11, 5)}}</small>
                             </div>
 
                         </div>
@@ -157,10 +159,8 @@
         </div>
         <!-- /.wrapper_app -->
 
-
     </div>
-
-    
+    <!-- /#app -->
 
     <!-- script bootsrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

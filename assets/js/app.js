@@ -265,13 +265,12 @@ const app = new Vue({
 
     deleteMessage(index){
       this.active_message = index;
-      console.log(this.active_message);
+      //console.log(this.active_message);
       this.contacts[this.selected_user].messages.splice(index, 1)
-
     }
   },
 });
 
-/* let array = [1, 2, 5, 65, 3, 24];
+let array = [1, 2, 5, 65, 3, 24];
 let lastElement = array.slice(-1)
-console.log(lastElement); */
+console.log(lastElement);

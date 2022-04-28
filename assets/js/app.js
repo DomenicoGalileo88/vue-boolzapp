@@ -31,11 +31,6 @@ const app = new Vue({
     new_message: "",
     timer_id: null,
     search: "",
-    
-    selectedMessage: {
-    index: 0,
-    showMenu: true,
-},
 
     conversation: [],
 
@@ -246,10 +241,10 @@ const app = new Vue({
       this.contacts.filter((contact) => {
         if (contact.name.toLowerCase().includes(this.search.toLowerCase())) {
           contact.visible = true;
-          //console.log("filtrato");
+          console.log("filtrato");
         } else {
           contact.visible = false;
-          //console.log("non filtrato");
+          console.log("non filtrato");
         }
       });
     },

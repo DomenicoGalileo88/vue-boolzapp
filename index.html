@@ -73,7 +73,7 @@
                                 :src="'./assets/img/avatar' + filter_contact.avatar + '.jpg'" alt="user_avatar">
                             <div class="text_users">
                                 <div class="user_message">
-                                    <h5  class="name_user ms-2">
+                                    <h5 class="name_user ms-2">
                                         {{filter_contact.name}}
                                     </h5>
 
@@ -125,14 +125,16 @@
                             {{message.message}} 
                             <span class="minute_message">
                                 {{message.date.substr(11, 5)}}
-                                <button @click="selectedMessage.showMenu = !selectedMessage.showMenu" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
-                                <span v-show="!selectedMessage.showMenu" class="dropdown_menu ">
+                                <button @click="contacts[index].messages[index].message = !contacts[index].messages[index].message" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
+                                <span v-show="!contacts[index].messages[index].message" class="dropdown_menu ">
                                     <ul class="content_menu">
                                         <li>Info message</li>
                                         <li>Delete message</li>
                                     </ul>
                                 </span>
-                                <span v-show="selectedMessage.showMenu"></span>
+                                <span v-show="contacts[index].messages[index].message">
+
+                                </span>
                             </span> 
                             
                             

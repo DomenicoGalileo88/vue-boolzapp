@@ -190,7 +190,7 @@ button:focus{
 }
 
 .grey{
-    background-color: var(--bg_selected_contact);
+    background-color: var(--bg_selected_contact)!important;
 }
 
 .content_menu{

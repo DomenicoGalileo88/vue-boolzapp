@@ -270,7 +270,3 @@ const app = new Vue({
     }
   },
 });
-
-let array = [1, 2, 5, 65, 3, 24];
-let lastElement = array.slice(-1)
-console.log(lastElement);

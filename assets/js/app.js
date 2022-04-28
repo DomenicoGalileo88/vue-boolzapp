@@ -237,26 +237,21 @@ const app = new Vue({
       this.contacts[this.selected_user].messages.push(answer);
     },
 
-    filterContacts(){
-      this.contacts.filter(contact => {
-        if (contact.name.toLowerCase().includes(this.search.toLowerCase())) {
-          console.log('vero');
-          contact.visible = true;
-        } else{
-          console.log('falso');
-          contact.visible = false;
-        }
-      });
-    }
-  },
-
-  /* computed: {
     filteredList() {
-      return this.contacts.filter((filter_contact) => {
-        return filter_contact.name.toLowerCase().includes(this.search.toLowerCase());
+      
+      this.contacts.filter((contact) => {
+          if (contact.name.toLowerCase().includes(this.search.toLowerCase())) {
+            contact.visible = true;
+            console.log("filtra");
+          } else{
+            contact.visible = false;
+            console.log("non filtra");
+
+          }
       });
     },
-  }, */
+  },
+
 });
 
 /* let array = [1, 2, 5, 65, 3, 24];

@@ -126,7 +126,7 @@
                             <span class="minute_message">
                                 {{message.date.substr(11, 5)}}
                                 <button @click="openMenu(index)" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
-                                <span :class="active_message == index ? 'active' : ''" class="dropdown_menu ">
+                                <span :class="active_message == index && drop == true ? 'active' : ''" class="dropdown_menu ">
                                     <ul class="content_menu">
                                         <li>Info message</li>
                                         <li>Delete message</li>

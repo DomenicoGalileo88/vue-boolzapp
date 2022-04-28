@@ -32,6 +32,7 @@ const app = new Vue({
     timer_id: null,
     search: "",
     active_message: 0,
+    drop: false,
 
     conversation: [],
 
@@ -253,6 +254,13 @@ const app = new Vue({
     openMenu(index){
       this.active_message = index;
       //console.log(this.active_message);
+      if (this.drop == false) {
+        this.drop = true;
+        //console.log(this.drop);
+      } else if(this.drop == true){
+        this.drop = false;
+        //console.log(this.drop);
+      }
     }
   },
 });

@@ -33,7 +33,7 @@ const app = new Vue({
     search: "",
     active_message: 0,
     drop: false,
-    current_date: new Date(),
+    current_date: '10' + new Date().getDay() + '/' + new Date().getMonth() + '/' + new Date().getFullYear() + ' ' + new Date().getHours() + ":" + new Date().getMinutes(),
 
     conversation: [],
 
@@ -216,7 +216,7 @@ const app = new Vue({
 
     add_new_message() {
       //console.log('hai aggiunto un nuovo messaggio');
-      
+
       let newMessage = {
         date: this.current_date,
         message: this.new_message,
@@ -233,9 +233,8 @@ const app = new Vue({
     },
 
     answer_message() {
-
       let answer = {
-        date: "10/01/2020 15:52:00",
+        date: this.current_date,
         message: "ok",
         status: "received",
       };
@@ -254,22 +253,22 @@ const app = new Vue({
       });
     },
 
-    openMenu(index){
+    openMenu(index) {
       this.active_message = index;
       //console.log(this.active_message);
       if (this.drop == false) {
         this.drop = true;
         //console.log(this.drop);
-      } else if(this.drop == true){
+      } else if (this.drop == true) {
         this.drop = false;
         //console.log(this.drop);
       }
     },
 
-    deleteMessage(index){
+    deleteMessage(index) {
       this.active_message = index;
       //console.log(this.active_message);
-      this.contacts[this.selected_user].messages.splice(index, 1)
-    }
+      this.contacts[this.selected_user].messages.splice(index, 1);
+    },
   },
 });

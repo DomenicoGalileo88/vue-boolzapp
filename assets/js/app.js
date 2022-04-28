@@ -33,6 +33,7 @@ const app = new Vue({
     search: "",
     active_message: 0,
     drop: false,
+    current_date: new Date(),
 
     conversation: [],
 
@@ -215,8 +216,9 @@ const app = new Vue({
 
     add_new_message() {
       //console.log('hai aggiunto un nuovo messaggio');
+      
       let newMessage = {
-        date: "10/01/2020 15:51:00",
+        date: this.current_date,
         message: this.new_message,
         status: "sent",
       };
@@ -231,8 +233,9 @@ const app = new Vue({
     },
 
     answer_message() {
+
       let answer = {
-        date: "10/01/2020 15:51:02",
+        date: "10/01/2020 15:52:00",
         message: "ok",
         status: "received",
       };

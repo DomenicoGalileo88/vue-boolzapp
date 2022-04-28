@@ -58,7 +58,7 @@
                     <div class="search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input class="search_bar border-0" type="text" placeholder="Cerca o inizia una nuova chat"
-                            v-model="search">
+                            v-model="search" @keypress="filterContacts">
                     </div>
                     <!-- /.search -->
                 </header>
@@ -66,15 +66,15 @@
                 <main class="main_section_sx">
 
                     <div class="users d-flex flex-column align-items-center"
-                        v-for="(filter_contact, index) in filteredList">
+                        v-for="(contact, index) in contacts">
                         <div :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2"
                             @click="user_index(index)">
                             <img width="50" class="rounded-circle"
-                                :src="'./assets/img/avatar' + filter_contact.avatar + '.jpg'" alt="user_avatar">
+                                :src="'./assets/img/avatar' + contact.avatar + '.jpg'" alt="user_avatar">
                             <div class="text_users">
                                 <div class="user_message">
                                     <h5 class="name_user ms-2">
-                                        {{filter_contact.name}}
+                                        {{contact.name}}
                                     </h5>
 
                                     <p class="last_message">Ultimo messaggio</p>
@@ -96,7 +96,7 @@
                 <header class="header_section_dx">
                     <div class="user_contact d-flex align-items-center
                                                                 justify-content-between p-2">
-                        <div class="contact d-flex align-items-center">
+                        <div v-if="contacts[selected_user].visible == true" class="contact d-flex align-items-center">
                             <img width="50" class="rounded-circle"
                                 :src="'./assets/img/avatar' + contacts[selected_user].avatar + '.jpg'"
                                 alt="user_avatar">
@@ -105,6 +105,16 @@
                             </h5>
 
                         </div>
+                        <!-- /.user_selected -->
+
+                        <!-- <div  class="contact d-flex align-items-center">
+                            <img width="50" class="rounded-circle" :src="'./assets/img/avatar' + contacts[selected_user].avatar + '.jpg'"
+                                alt="user_avatar">
+                            <h5 class="contact_user">
+                                {{contacts[selected_user].name}}
+                            </h5>
+                        
+                        </div> -->
                         <!-- /.user_selected -->
 
                         <div class="false_action">

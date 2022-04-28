@@ -67,20 +67,20 @@
 
                     <div class="users d-flex flex-column align-items-center"
                         v-for="(filter_contact, index) in contacts">
-                        <div :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2"
+                        <div v-if="filter_contact.visible == true" :class="selected_user == index ? 'grey' : ''" class="user d-flex align-items-center p-2"
                             @click="user_index(index)">
-                            <img v-if="filter_contact.visible == true" width="50" class="rounded-circle"
+                            <img width="50" class="rounded-circle"
                                 :src="'./assets/img/avatar' + filter_contact.avatar + '.jpg'" alt="user_avatar">
                             <div class="text_users">
                                 <div class="user_message">
-                                    <h5 v-if="filter_contact.visible == true" class="name_user ms-2">
+                                    <h5  class="name_user ms-2">
                                         {{filter_contact.name}}
                                     </h5>
 
-                                    <p v-if="filter_contact.visible == true" class="last_message">Ultimo messaggio</p>
+                                    <p class="last_message">Ultimo messaggio</p>
                                 </div>
 
-                                <span v-if="filter_contact.visible == true" class="hours">12:50</span>
+                                <span class="hours">12:50</span>
                             </div>
 
                         </div>
@@ -125,16 +125,14 @@
                             {{message.message}} 
                             <span class="minute_message">
                                 {{message.date.substr(11, 5)}}
-                                <button @click="contacts[index].visible = !contacts[index].visible" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
-                                <span v-show="!contacts[index].visible" class="dropdown_menu ">
+                                <button @click="selectedMessage.showMenu = !selectedMessage.showMenu" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
+                                <span v-show="!selectedMessage.showMenu" class="dropdown_menu ">
                                     <ul class="content_menu">
                                         <li>Info message</li>
                                         <li>Delete message</li>
                                     </ul>
                                 </span>
-                                <span v-show="contacts[index].visible">
-
-                                </span>
+                                <span v-show="selectedMessage.showMenu"></span>
                             </span> 
                             
                             

@@ -31,6 +31,7 @@ const app = new Vue({
     new_message: "",
     timer_id: null,
     search: "",
+    active_message: 0,
 
     conversation: [],
 
@@ -248,6 +249,11 @@ const app = new Vue({
         }
       });
     },
+
+    openMenu(index){
+      this.active_message = index;
+      //console.log(this.active_message);
+    }
   },
 });
 

@@ -125,17 +125,18 @@
                             {{message.message}} 
                             <span class="minute_message">
                                 {{message.date.substr(11, 5)}}
-                                <button @click="contacts[index].messages[index].message = !contacts[index].messages[index].message" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
-                                <span v-show="!contacts[index].messages[index].message" class="dropdown_menu ">
+                                <button @click="openMenu(index)" class="bg-transparent border-0"><i class="fa-solid fa-chevron-down"></i></button>
+                                <span :class="active_message == index ? 'active' : ''" class="dropdown_menu ">
                                     <ul class="content_menu">
                                         <li>Info message</li>
                                         <li>Delete message</li>
                                     </ul>
                                 </span>
-                                <span v-show="contacts[index].messages[index].message">
+                                <span >
 
                                 </span>
                             </span> 
+                            
                             
                             
                         </div>

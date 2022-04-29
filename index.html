@@ -77,12 +77,12 @@
                                         {{filter_contact.name}}
                                     </h5>
 
-                                    <p class="last_message">
+                                    <p class="last_message" v-if="contacts[selected_user].messages.length > 0">
                                         {{filter_contact.messages[filter_contact.messages.length -1].message}}
                                     </p>
                                 </div>
 
-                                <small class="hours">{{filter_contact.messages[filter_contact.messages.length -1].date.substr(11, 5)}}</small>
+                                <small v-if="contacts[selected_user].messages.length > 0" class="hours">{{filter_contact.messages[filter_contact.messages.length -1].date.substr(11, 5)}}</small>
                             </div>
 
                         </div>
